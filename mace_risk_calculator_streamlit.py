@@ -1,4 +1,4 @@
-
+!pip import streamlit xgboost pandas numpy pickle
 import streamlit as st
 import xgboost as xgb
 import pandas as pd
@@ -6,7 +6,7 @@ import numpy as np
 import pickle
 
 # Load the model
-with open('xgb_model_with_auc_0_85.pkl', 'rb') as f:
+with open('xgb_model_with_auc_0_85.pkl', 'xgb') as f:
     model = pickle.load(f)
 
 # Expected features
@@ -32,11 +32,11 @@ def main():
     st.subheader('Numeric Variables')
     user_input = {}
     for col in numeric_cols:
-        user_input[col] = st.number_input(f'DynamicAlteration', value=None)
+        user_input[col] = st.number_input(f'DynamicAlteration', value=float())
     
     st.subheader('Categorical Variables')
     for col in categorical_cols:
-        user_input[col] = st.text_input(f'DynamicAlteration', value=None)
+        user_input[col] = st.text_input(f'DynamicAlteration', value=int())
     
     # Make Prediction
     if st.button('Calculate Risk'):
