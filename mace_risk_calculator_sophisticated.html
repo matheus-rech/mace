@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MACE Risk Prediction Calculator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2c2c;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #00bcd4;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+        }
+        h1, h2 {
+            color: #00bcd4;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #00bcd4;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #00bcd4;
+            border-radius: 3px;
+            background-color: #333;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #008c9e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>MACE Risk Prediction Calculator</h1>
+        <form id="risk-calculator-form">
+            <!-- Numeric variables -->
+            <h2>Numeric Variables</h2>
+
+    <div class="form-group">
+        <label for="Weight">Weight</label>
+        <input type="number" id="Weight" name="Weight" placeholder="Enter Weight">
+    </div>
+    
+    <div class="form-group">
+        <label for="Height">Height</label>
+        <input type="number" id="Height" name="Height" placeholder="Enter Height">
+    </div>
+    
+    <div class="form-group">
+        <label for="BodyMassIndex">BodyMassIndex</label>
+        <input type="number" id="BodyMassIndex" name="BodyMassIndex" placeholder="Enter BodyMassIndex">
+    </div>
+    
+    <div class="form-group">
+        <label for="Hematocrit">Hematocrit</label>
+        <input type="number" id="Hematocrit" name="Hematocrit" placeholder="Enter Hematocrit">
+    </div>
+    
+    <div class="form-group">
+        <label for="Leukocytes">Leukocytes</label>
+        <input type="number" id="Leukocytes" name="Leukocytes" placeholder="Enter Leukocytes">
+    </div>
+    
+    <div class="form-group">
+        <label for="Platelets">Platelets</label>
+        <input type="number" id="Platelets" name="Platelets" placeholder="Enter Platelets">
+    </div>
+    
+    <div class="form-group">
+        <label for="TotalBilirubin">TotalBilirubin</label>
+        <input type="number" id="TotalBilirubin" name="TotalBilirubin" placeholder="Enter TotalBilirubin">
+    </div>
+    
+    <div class="form-group">
+        <label for="DirectBilirubin">DirectBilirubin</label>
+        <input type="number" id="DirectBilirubin" name="DirectBilirubin" placeholder="Enter DirectBilirubin">
+    </div>
+    
+    <div class="form-group">
+        <label for="Creatinine">Creatinine</label>
+        <input type="number" id="Creatinine" name="Creatinine" placeholder="Enter Creatinine">
+    </div>
+    
+    <div class="form-group">
+        <label for="Urea">Urea</label>
+        <input type="number" id="Urea" name="Urea" placeholder="Enter Urea">
+    </div>
+    
+    <div class="form-group">
+        <label for="ProthrombinTimeActivity">ProthrombinTimeActivity</label>
+        <input type="number" id="ProthrombinTimeActivity" name="ProthrombinTimeActivity" placeholder="Enter ProthrombinTimeActivity">
+    </div>
+    
+    <div class="form-group">
+        <label for="InternationalNormalizedRatio">InternationalNormalizedRatio</label>
+        <input type="number" id="InternationalNormalizedRatio" name="InternationalNormalizedRatio" placeholder="Enter InternationalNormalizedRatio">
+    </div>
+    
+    <div class="form-group">
+        <label for="Sodium">Sodium</label>
+        <input type="number" id="Sodium" name="Sodium" placeholder="Enter Sodium">
+    </div>
+    
+    <div class="form-group">
+        <label for="Potassium">Potassium</label>
+        <input type="number" id="Potassium" name="Potassium" placeholder="Enter Potassium">
+    </div>
+    
+    <div class="form-group">
+        <label for="Albumin">Albumin</label>
+        <input type="number" id="Albumin" name="Albumin" placeholder="Enter Albumin">
+    </div>
+    
+    <div class="form-group">
+        <label for="AST">AST</label>
+        <input type="number" id="AST" name="AST" placeholder="Enter AST">
+    </div>
+    
+    <div class="form-group">
+        <label for="ALT">ALT</label>
+        <input type="number" id="ALT" name="ALT" placeholder="Enter ALT">
+    </div>
+    
+    <div class="form-group">
+        <label for="GGT">GGT</label>
+        <input type="number" id="GGT" name="GGT" placeholder="Enter GGT">
+    </div>
+    
+    <div class="form-group">
+        <label for="AlkalinePhosphatase">AlkalinePhosphatase</label>
+        <input type="number" id="AlkalinePhosphatase" name="AlkalinePhosphatase" placeholder="Enter AlkalinePhosphatase">
+    </div>
+    
+    <div class="form-group">
+        <label for="LeftAtriumSize">LeftAtriumSize</label>
+        <input type="number" id="LeftAtriumSize" name="LeftAtriumSize" placeholder="Enter LeftAtriumSize">
+    </div>
+    
+    <div class="form-group">
+        <label for="DistalVolumeOfLeftVentricle">DistalVolumeOfLeftVentricle</label>
+        <input type="number" id="DistalVolumeOfLeftVentricle" name="DistalVolumeOfLeftVentricle" placeholder="Enter DistalVolumeOfLeftVentricle">
+    </div>
+    
+    <div class="form-group">
+        <label for="SystolicVolumeOfLeftVentricle">SystolicVolumeOfLeftVentricle</label>
+        <input type="number" id="SystolicVolumeOfLeftVentricle" name="SystolicVolumeOfLeftVentricle" placeholder="Enter SystolicVolumeOfLeftVentricle">
+    </div>
+    
+            <!-- Categorical variables -->
+            <h2>Categorical Variables</h2>
+
+    <div class="form-group">
+        <label for="Race">Race</label>
+        <input type="text" id="Race" name="Race" placeholder="Enter Race">
+    </div>
+    
+    <div class="form-group">
+        <label for="Sex">Sex</label>
+        <input type="text" id="Sex" name="Sex" placeholder="Enter Sex">
+    </div>
+    
+    <div class="form-group">
+        <label for="PreviousVaricealBandLigation">PreviousVaricealBandLigation</label>
+        <input type="text" id="PreviousVaricealBandLigation" name="PreviousVaricealBandLigation" placeholder="Enter PreviousVaricealBandLigation">
+    </div>
+    
+    <div class="form-group">
+        <label for="PortalHypertensiveGastropathy">PortalHypertensiveGastropathy</label>
+        <input type="text" id="PortalHypertensiveGastropathy" name="PortalHypertensiveGastropathy" placeholder="Enter PortalHypertensiveGastropathy">
+    </div>
+    
+    <div class="form-group">
+        <label for="Ascites">Ascites</label>
+        <input type="text" id="Ascites" name="Ascites" placeholder="Enter Ascites">
+    </div>
+    
+    <div class="form-group">
+        <label for="SpontaneousBacterialPeritonitis">SpontaneousBacterialPeritonitis</label>
+        <input type="text" id="SpontaneousBacterialPeritonitis" name="SpontaneousBacterialPeritonitis" placeholder="Enter SpontaneousBacterialPeritonitis">
+    </div>
+    
+    <div class="form-group">
+        <label for="HepatopulmonarySyndrome">HepatopulmonarySyndrome</label>
+        <input type="text" id="HepatopulmonarySyndrome" name="HepatopulmonarySyndrome" placeholder="Enter HepatopulmonarySyndrome">
+    </div>
+    
+    <div class="form-group">
+        <label for="BetaBlockerUse">BetaBlockerUse</label>
+        <input type="text" id="BetaBlockerUse" name="BetaBlockerUse" placeholder="Enter BetaBlockerUse">
+    </div>
+    
+    <div class="form-group">
+        <label for="PortalVeinThrombosis">PortalVeinThrombosis</label>
+        <input type="text" id="PortalVeinThrombosis" name="PortalVeinThrombosis" placeholder="Enter PortalVeinThrombosis">
+    </div>
+    
+    <div class="form-group">
+        <label for="HepaticEncephalopathy">HepaticEncephalopathy</label>
+        <input type="text" id="HepaticEncephalopathy" name="HepaticEncephalopathy" placeholder="Enter HepaticEncephalopathy">
+    </div>
+    
+    <div class="form-group">
+        <label for="HepatorenalSyndrome">HepatorenalSyndrome</label>
+        <input type="text" id="HepatorenalSyndrome" name="HepatorenalSyndrome" placeholder="Enter HepatorenalSyndrome">
+    </div>
+    
+    <div class="form-group">
+        <label for="AntibioticTherapyFor24h">AntibioticTherapyFor24h</label>
+        <input type="text" id="AntibioticTherapyFor24h" name="AntibioticTherapyFor24h" placeholder="Enter AntibioticTherapyFor24h">
+    </div>
+    
+    <div class="form-group">
+        <label for="HospitalizedFor48h">HospitalizedFor48h</label>
+        <input type="text" id="HospitalizedFor48h" name="HospitalizedFor48h" placeholder="Enter HospitalizedFor48h">
+    </div>
+    
+    <div class="form-group">
+        <label for="PreTransplantHemodialysis">PreTransplantHemodialysis</label>
+        <input type="text" id="PreTransplantHemodialysis" name="PreTransplantHemodialysis" placeholder="Enter PreTransplantHemodialysis">
+    </div>
+    
+    <div class="form-group">
+        <label for="HepatocellularCarcinoma">HepatocellularCarcinoma</label>
+        <input type="text" id="HepatocellularCarcinoma" name="HepatocellularCarcinoma" placeholder="Enter HepatocellularCarcinoma">
+    </div>
+    
+    <div class="form-group">
+        <label for="BloodGroup">BloodGroup</label>
+        <input type="text" id="BloodGroup" name="BloodGroup" placeholder="Enter BloodGroup">
+    </div>
+    
+    <div class="form-group">
+        <label for="CongestiveHeartFailure">CongestiveHeartFailure</label>
+        <input type="text" id="CongestiveHeartFailure" name="CongestiveHeartFailure" placeholder="Enter CongestiveHeartFailure">
+    </div>
+    
+    <div class="form-group">
+        <label for="Angioplasty">Angioplasty</label>
+        <input type="text" id="Angioplasty" name="Angioplasty" placeholder="Enter Angioplasty">
+    </div>
+    
+    <div class="form-group">
+        <label for="Dyslipidemia">Dyslipidemia</label>
+        <input type="text" id="Dyslipidemia" name="Dyslipidemia" placeholder="Enter Dyslipidemia">
+    </div>
+    
+    <div class="form-group">
+        <label for="Hypertension">Hypertension</label>
+        <input type="text" id="Hypertension" name="Hypertension" placeholder="Enter Hypertension">
+    </div>
+    
+    <div class="form-group">
+        <label for="AcuteMyocardialInfarction">AcuteMyocardialInfarction</label>
+        <input type="text" id="AcuteMyocardialInfarction" name="AcuteMyocardialInfarction" placeholder="Enter AcuteMyocardialInfarction">
+    </div>
+    
+    <div class="form-group">
+        <label for="Stroke">Stroke</label>
+        <input type="text" id="Stroke" name="Stroke" placeholder="Enter Stroke">
+    </div>
+    
+    <div class="form-group">
+        <label for="DiabetesMellitus">DiabetesMellitus</label>
+        <input type="text" id="DiabetesMellitus" name="DiabetesMellitus" placeholder="Enter DiabetesMellitus">
+    </div>
+    
+    <div class="form-group">
+        <label for="ValveReplacement">ValveReplacement</label>
+        <input type="text" id="ValveReplacement" name="ValveReplacement" placeholder="Enter ValveReplacement">
+    </div>
+    
+    <div class="form-group">
+        <label for="MitralInsufficiency">MitralInsufficiency</label>
+        <input type="text" id="MitralInsufficiency" name="MitralInsufficiency" placeholder="Enter MitralInsufficiency">
+    </div>
+    
+    <div class="form-group">
+        <label for="TricuspidInsufficiency">TricuspidInsufficiency</label>
+        <input type="text" id="TricuspidInsufficiency" name="TricuspidInsufficiency" placeholder="Enter TricuspidInsufficiency">
+    </div>
+    
+    <div class="form-group">
+        <label for="NonInvasiveMethod">NonInvasiveMethod</label>
+        <input type="text" id="NonInvasiveMethod" name="NonInvasiveMethod" placeholder="Enter NonInvasiveMethod">
+    </div>
+    
+    <div class="form-group">
+        <label for="DynamicAlteration">DynamicAlteration</label>
+        <input type="text" id="DynamicAlteration" name="DynamicAlteration" placeholder="Enter DynamicAlteration">
+    </div>
+    
+            <button type="submit">Calculate Risk</button>
+        </form>
+    </div>
+
+</body>
+</html>
